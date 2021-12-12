@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-${FLINK_HOME}/bin/sql-client.sh embedded \
-    -d ${FLINK_HOME}/conf/sql-client-conf.yaml \
-    -l ${SQL_CLIENT_HOME}/lib
+echo ${FLINK_HOME}/bin/sql-client.sh embedded --library ${SQL_CLIENT_HOME}/lib
+${FLINK_HOME}/bin/sql-client.sh embedded --library ${SQL_CLIENT_HOME}/lib

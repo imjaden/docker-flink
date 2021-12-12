@@ -45,7 +45,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   flinksql:
     container_name: dfd-flink
-    image: flink:2.12-1.14.0
+    image: imjaden/flink:2.12-1.14.0
     depends_on:
       - kafka
       - jobmanager

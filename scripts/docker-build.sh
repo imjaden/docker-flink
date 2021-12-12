@@ -15,10 +15,15 @@ usage)
 *)
     echo "Param Kafka: ${FLINK_VERSION}, Scala: ${SCALA_VERSION}"
 
+    echo "Removing local image/container..."
+    docker stop flink:${IMAGE_VERSION} 2 &>/dev/null
+    docker rm flink:${IMAGE_VERSION} 2 &>/dev/null
+    docker image rm flink:${IMAGE_VERSION} 2 &>/dev/null
+    docker image rm imjaden/flink:${IMAGE_VERSION} 2 &>/dev/null
+
     echo "Building docker image..."
     docker build --tag flink:${IMAGE_VERSION} .
 
-    exit
     echo "Taging docker image..."
     docker tag flink:${IMAGE_VERSION} ${DOCKER_TAG}:${IMAGE_VERSION}
 
